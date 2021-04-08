@@ -27,6 +27,7 @@ describe('14-queue', () => {
     const queue = new Queue();
     assert.doesNotThrow(() => queue.enqueue(5));
     assert.strictEqual(queue.dequeue(), 5);
+    console.log(ListNodeStub);
     assert.strictEqual(ListNodeStub.called, true);
   });
 });
