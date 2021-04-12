@@ -13,9 +13,7 @@
 function getSumOfDigits(n) {
   const arr = n.toString().split('');
   if (arr.length === 1) return +arr[0];
-  const number = arr.reduce((sum, value) => {
-    return sum + +value;
-  }, 0);
+  const number = arr.reduce((sum, value) => sum + +value, 0);
   return getSumOfDigits(number);
 }
 
