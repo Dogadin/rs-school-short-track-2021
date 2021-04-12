@@ -11,7 +11,7 @@
  * queue.dequeue(); // returns the top element from queue and deletes it, returns 1
  *
  */
-
+const ListNode = require('../extensions/list-node');
 class Queue {
   constructor() {
     this.arr = [];
@@ -29,6 +29,25 @@ class Queue {
     return this.arr.shift();
     // return this.arr.pop();
   }
+
+  convertArrayToList(arr) {
+    return arr.reverse().reduce((acc, cur) => {
+      if (acc) {
+        const node = new ListNode(cur);
+        node.next = acc;
+        return node;
+      }
+      return new ListNode(cur);
+    }, null);
+  }
+
+  convertListToArray(list, arr = []) {
+    const { value, next } = list;
+    arr.push(value);
+    if (next === null) return arr;
+    return this.convertListToArray(next, arr);
+  }
+
 }
 
 module.exports = Queue;
