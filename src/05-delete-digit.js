@@ -11,12 +11,11 @@
  */
 function deleteDigit(n) {
   const arr = n.toString().split('');
-  const ret = arr.reduce((max, value, ind, arrR) => {
+  return arr.reduce((max, value, ind, arrR) => {
     const arrTemp = arrR.filter((valueF, indF) => indF !== ind);
     const curr = +arrTemp.join('');
     return max < curr ? curr : max;
   }, 0);
-  return ret;
 }
 
 module.exports = deleteDigit;
